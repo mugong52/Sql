@@ -145,13 +145,15 @@ HAVING `수량` >= 2;
 
 #실습 22
 SELECT * FROM Customer JOIN Orders ON Customer.custid = Orders.custid;
-SELECT * FROM Customer JOIN Orders USING(custid);
 SELECT * FROM Customer, Orders WHERE Customer.custid = Orders.custid;
+# custid 중복 표시
+
+SELECT * FROM Customer JOIN Orders USING(custid);
 
 #실습 23
 SELECT * FROM Customer JOIN Orders 
-ON Customer.custid = Orders.custid 
-ORDER BY Customer.custid;
+USING(custid) 
+ORDER BY custid;
 
 #실습 24
 SELECT `name`, `saleprice` 
